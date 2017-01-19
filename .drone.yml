@@ -1,6 +1,6 @@
 workspace:
   base: /go
-  path: src/github.com/drone-plugins/drone-docker
+  path: src/github.com/Jyrno42/drone-docker
 
 pipeline:
   test:
@@ -14,9 +14,9 @@ pipeline:
       - go build -ldflags "-s -w -X main.build=$DRONE_BUILD_NUMBER" -a -tags netgo
 
   publish:
-    image: plugins/docker
-    repo: plugins/docker
-    tags: [ "latest", "1.12", "1" ]
+    image: thorgate/drone-docker-compose
+    repo: thorgate/drone-docker-compose
+    tags: [ "latest", "0.0.1" ]
     when:
       branch: master
       event: push
